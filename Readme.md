@@ -31,11 +31,11 @@ export default ContainerRow;
 ```react
 import React from "react";
 
-const Header = ({ dark }) => {
+const Header = ({ dark, children }) => {
   dark = !!dark ? "dark" : "light";
   return (
     <nav className={`navbar navbar-${dark} bg-${dark}`}>
-      <span className="navbar-brand">Dark Header</span>
+      <span className="navbar-brand">{children}</span>
     </nav>
   );
 };
