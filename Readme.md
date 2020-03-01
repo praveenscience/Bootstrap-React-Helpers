@@ -26,4 +26,19 @@ const ContainerRow = ({ fluid, className, children }) => {
 export default ContainerRow;
 ```
 
+## Headers
 
+```react
+import React from "react";
+
+const Header = ({ dark }) => {
+  dark = !!dark ? "dark" : "light";
+  return (
+    <nav className={`navbar navbar-${dark} bg-${dark}`}>
+      <span className="navbar-brand">Dark Header</span>
+    </nav>
+  );
+};
+
+export default Header;
+```
