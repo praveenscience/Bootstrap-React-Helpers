@@ -36,7 +36,7 @@ const Header = ({ dark, children, className }) => {
   return (
     <nav
       className={
-        `navbar navbar-${dark} bg-${dark}` + (className ? "" + className : "")
+        `navbar navbar-${dark} bg-${dark}` + (className ? " " + className : "")
       }
     >
       <span className="navbar-brand">{children}</span>
