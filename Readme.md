@@ -2,7 +2,55 @@
 
 These are my own versions of components that I use for my React Applications, where these snippets might help me by reducing the repetitive stuff that I need to do.
 
-## Containers & Rows
+## Card Element
+
+This creates a card element.
+
+```react
+import React from "react";
+
+const Card = ({
+  Image,
+  ImgAlign,
+  Header,
+  TextHeader,
+  Title,
+  Text,
+  children,
+  Footer,
+  className
+}) => {
+  return (
+    <div className={"card" + (className ? " " + className : "")}>
+      {Image && (
+        <img
+          className={"card-img-" + ImgAlign}
+          src={Image}
+          alt={Header && Title}
+        />
+      )}
+      {Header &&
+        (TextHeader ? (
+          <div className="card-header">{Header}</div>
+        ) : (
+          <h5 className="card-header">{Header}</h5>
+        ))}
+      <div className="card-body">
+        {Title && <h5 className="card-title">{Title}</h5>}
+        {Text && <p className="card-text">{Text}</p>}
+        {children}
+      </div>
+      {Footer && <div className="card-footer text-muted">{Footer}</div>}
+    </div>
+  );
+};
+
+export default Card;
+```
+
+## Containers
+
+### Container with a Single Row
 
 This creates a container with a row.
 
@@ -24,6 +72,30 @@ const ContainerRow = ({ fluid, className, children }) => {
 };
 
 export default ContainerRow;
+```
+
+### Container Element
+
+This creates a generic container element.
+
+```react
+import React from "react";
+
+const Container = ({ fluid, className, children }) => {
+  return (
+    <div
+      className={
+        "container" +
+        (fluid ? "-fluid" : "") +
+        (className && className.length > 0 ? " " + className : "")
+      }
+    >
+      {children}
+    </div>
+  );
+};
+
+export default Container;
 ```
 
 ## Headers
