@@ -35,10 +35,13 @@ const Card = ({
         ) : (
           <h5 className="card-header">{Header}</h5>
         ))}
-      <div className="card-body">
-        {Title && <h5 className="card-title">{Title}</h5>}
-        {Text && <p className="card-text">{Text}</p>}
-        {children}
+      {(Title || Text || children) && (
+        <div className="card-body">
+          {Title && <h5 className="card-title">{Title}</h5>}
+          {Text && <p className="card-text">{Text}</p>}
+          {children}
+        </div>
+      )}
       </div>
       {Footer && <div className="card-footer text-muted">{Footer}</div>}
     </div>
