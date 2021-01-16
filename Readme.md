@@ -42,7 +42,6 @@ const Card = ({
           {children}
         </div>
       )}
-      </div>
       {Footer && <div className="card-footer text-muted">{Footer}</div>}
     </div>
   );
