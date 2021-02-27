@@ -105,7 +105,7 @@ export default Container;
 ```react
 import React from "react";
 
-const Header = ({ dark, children, className }) => {
+const Header = ({ dark, children, className, to, Link }) => {
   dark = !!dark ? "dark" : "light";
   return (
     <nav
@@ -113,7 +113,13 @@ const Header = ({ dark, children, className }) => {
         `navbar navbar-${dark} bg-${dark}` + (className ? " " + className : "")
       }
     >
-      <span className="navbar-brand">{children}</span>
+      {to ? (
+        <Link to={to} className="navbar-brand">
+          {children}
+        </Link>
+      ) : (
+        <span className="navbar-brand">{children}</span>
+      )}
     </nav>
   );
 };
@@ -127,7 +133,7 @@ export default Header;
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = ({ dark, children, className, pages }) => {
+const Header = ({ dark, children, className, pages, to, Link }) => {
   dark = !!dark ? "dark" : "light";
   return (
     <nav
@@ -137,7 +143,13 @@ const Header = ({ dark, children, className, pages }) => {
         (pages && pages.length ? " navbar-expand-lg" : "")
       }
     >
-      <span className="navbar-brand">{children}</span>
+      {to ? (
+        <Link to={to} className="navbar-brand">
+          {children}
+        </Link>
+      ) : (
+        <span className="navbar-brand">{children}</span>
+      )}
       {pages && pages.length > 0 && (
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
@@ -167,7 +179,7 @@ Possibly send a button with an `onClick` handler.
 ```react
 import React from "react";
 
-const Header = ({ dark, children, className, items }) => {
+const Header = ({ dark, children, className, items, to, Link }) => {
   dark = !!dark ? "dark" : "light";
   return (
     <nav
@@ -177,7 +189,13 @@ const Header = ({ dark, children, className, items }) => {
         (items && items.length ? " navbar-expand-lg" : "")
       }
     >
-      <span className="navbar-brand">{children}</span>
+      {to ? (
+        <Link to={to} className="navbar-brand">
+          {children}
+        </Link>
+      ) : (
+        <span className="navbar-brand">{children}</span>
+      )}
       {items && items.length > 0 && (
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
@@ -201,7 +219,7 @@ For a right aligned buttons, use this...
 ```react
 import React from "react";
 
-const Header = ({ dark, children, className, items }) => {
+const Header = ({ dark, children, className, items, to, Link }) => {
   dark = !!dark ? "dark" : "light";
   return (
     <nav
@@ -211,7 +229,13 @@ const Header = ({ dark, children, className, items }) => {
         (items && items.length ? " navbar-expand-lg" : "")
       }
     >
-      <span className="navbar-brand">{children}</span>
+      {to ? (
+        <Link to={to} className="navbar-brand">
+          {children}
+        </Link>
+      ) : (
+        <span className="navbar-brand">{children}</span>
+      )}
       {items && items.length > 0 && (
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
