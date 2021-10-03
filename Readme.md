@@ -1,6 +1,6 @@
 # Bootstrap Helpers
 
-These are my own versions of components that I use for my React Applications, where these snippets might help me by reducing the repetitive stuff that I need to do.
+These are my own versions of components that I use for my React Applications, where these snippets might help me by reducing the repetitive stuff that I need to do. All these components are based out of **Bootstrap 4 version** and they might need an upgrade.
 
 ## Card Element
 
