@@ -271,6 +271,7 @@ const FormGroup = ({
   defaultValue,
   Checked,
   defaultChecked,
+  Placeholder,
   Desc
 }) => {
   return (
@@ -283,6 +284,7 @@ const FormGroup = ({
         name={Id}
         onChange={onChange}
         value={Value}
+        placeholder={Placeholder}
         defaultValue={defaultValue}
         checked={Checked}
         defaultChecked={defaultChecked}
