@@ -301,3 +301,77 @@ const FormGroup = ({
 
 export default FormGroup;
 ```
+
+## Modal Window & Utilities
+
+### Cancelling Propagation
+
+It’s noted that Modal Windows have multiple layers and some of the events need to be cancelled. I created a generic `CancelPropagation` to combat this problem. This can be currently stored inside the `utils` directory as `GenUtils.js` and it has been exposed and exported.
+
+```javascript
+export const CancelPropagation = (e, next) => {
+  e.stopPropagation();
+  if (next && typeof next === "function") next();
+};
+```
+
+### Modal
+
+```react
+import { CancelPropagation } from "../../utils/GenUtils";
+
+const Modal = ({
+  children,
+  Confirm,
+  Cancel,
+  Title,
+  CancelButton,
+  ConfirmButton
+}) => {
+  return (
+    <>
+      <div className="Modal modal d-block" role="dialog" onClick={Cancel}>
+        <div
+          className="modal-dialog"
+          role="document"
+          onClick={CancelPropagation}
+        >
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">{Title}</h5>
+              <button
+                type="button"
+                className="close"
+                aria-label="Close"
+                onClick={Cancel}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">{children}</div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={Cancel}
+              >
+                {CancelButton}
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={Confirm}
+              >
+                {ConfirmButton}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-backdrop fade show"></div>
+    </>
+  );
+};
+
+export default Modal;
+```
